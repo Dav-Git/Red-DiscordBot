@@ -536,7 +536,20 @@ class KickBanMixin(MixinMeta):
         *,
         reason: str = None,
     ):
-        """Temporarily ban a user from this server."""
+        """
+        Temporarily ban a user from this server.
+
+        `duration` is the amount of time the user shoud be banned for.
+        `days` is the amount of days of messages to cleanup on ban.
+
+        Example use:
+            `[p]tempban @Twentysix Because I say so`
+            This will ban Twentysix for the default amount of time set by an administrator.
+            `[p]tempban @Twentysix 15m You need a timeout`
+            This will ban Twentysix for 15 minutes.
+            `[p]tempban 428675506947227648 1d2h15m 5 Evil person`
+            This will ban the user for 1 day 2 hours 15 minutes and will delete the last 5 days of their messages.
+        """
         guild = ctx.guild
         author = ctx.author
 
